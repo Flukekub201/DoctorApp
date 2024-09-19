@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -135,16 +136,36 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               const SizedBox(height: 20),
-                              const Row(
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('หากยังไม่มีบัญชี'),
-                                  SizedBox(
-                                    width: 10,
+                                  Container(
+                                    child: Row(
+                                      children: [
+                                        const Text('หากยังไม่มีบัญชี'),
+                                        TextButton(
+                                          onPressed: () {
+                                            print('ลงทะเบียน');
+                                          },
+                                          child: const Text(
+                                            'ลงทะเบียน',
+                                            style: TextStyle(
+                                                color: Colors.green,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
-                                  Text(
-                                    'ลงทะเบียน',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
+                                  TextButton(
+                                      onPressed: () {
+                                        print('ลืมรห้สผ่าน?');
+                                      },
+                                      child: const Text(
+                                        'ลืมรห้สผ่าน?',
+                                        style: TextStyle(color: Colors.blue),
+                                      ))
                                 ],
                               )
                             ],
