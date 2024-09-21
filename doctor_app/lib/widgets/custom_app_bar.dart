@@ -11,13 +11,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             children: [
               ClipOval(
-                child: Image.asset(
-                  'assets/background/background.jpg',
-                  width: 50,
-                  height: 50,
-                  fit: BoxFit.cover,
-                ),
-              ),
+                  child: Container(width: 50, height: 50, color: Colors.grey)),
               const SizedBox(width: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   const SizedBox(height: 2),
                   Container(
                     width: 115,
-                    height: 2,
+                    height: 1,
                     color: Colors.white,
                   ),
                   const SizedBox(height: 2),
@@ -83,7 +77,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
                 const SizedBox(width: 5),
                 Container(
-                  width: 2,
+                  width: 1,
                   height: 50,
                   color: Colors.grey,
                 ),
