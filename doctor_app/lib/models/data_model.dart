@@ -27,3 +27,46 @@ List<MenuItemData> menuItems = [
   MenuItemData(title: 'โทรเรียกรถฉุกเฉิน', image: 'assets/img/60.png'),
   MenuItemData(title: 'หมอพร้อม', image: 'assets/img/60.png'),
 ];
+
+class Appointment {
+  String title;
+  String room;
+  String time;
+  String period;
+  String doctor;
+  String examType;
+  String note;
+  String date;
+
+  Appointment({
+    required this.title,
+    required this.room,
+    required this.time,
+    required this.period,
+    required this.doctor,
+    required this.examType,
+    required this.note,
+    required this.date,
+  });
+}
+
+List<Appointment> appointments = [
+  Appointment(
+      title: 'คุณมีนัดหมายการพบแพทย์ในวันพรุ่งนี้',
+      room: 'ห้องตรวจอายุรกรรม',
+      time: '09.00 น. -12.00 น.',
+      period: 'ตอนนี้',
+      doctor: 'นพ. สมชาย ใจดี',
+      examType: 'ตรวจโรคทั่วไป',
+      note: 'ไม่มี',
+      date: '04/05/2024'),
+  Appointment(
+      title: 'คุณมีนัดหมายการพบแพทย์ในอีก 7 วัน',
+      room: 'ห้องตรวจอายุรกรรม',
+      time: '09.00 น. -12.00 น.',
+      period: '1 สัปดาห์ที่แล้ว',
+      doctor: 'นพ. สุดยอด เฮงดี',
+      examType: 'ตรวจสุขภาพประจำปี',
+      note: 'กรุณานำเอกสารประวัติการรักษามาด้วย',
+      date: '28/04/2024'),
+];

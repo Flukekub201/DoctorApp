@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../models/data_model.dart';
+import 'main_page.dart';
 
 class HomPage extends StatefulWidget {
   const HomPage({super.key});
@@ -51,7 +52,12 @@ class _HomPageState extends State<HomPage> {
               children: [
                 InkWell(
                   onTap: () {
-                    print('นัดหมายล่วงหน้า');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainPage(selectedIndex: 2),
+                      ),
+                    );
                   },
                   child: Container(
                     width: 160,
@@ -196,8 +202,18 @@ class _HomPageState extends State<HomPage> {
                         child: Container(
                           width: 60,
                           height: 60,
-                          color: Colors.black12,
-                          child: const Icon(Icons.add, size: 50),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            border: Border.all(
+                              color: Colors.black26,
+                              width: 1,
+                            ),
+                          ),
+                          child: const Icon(
+                            Icons.add,
+                            size: 30,
+                            color: Colors.black12,
+                          ),
                         ),
                       ),
                     ),
@@ -249,13 +265,17 @@ class _HomPageState extends State<HomPage> {
         height: 40,
         width: 150,
         decoration: BoxDecoration(
-          color: Colors.black12,
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: Colors.black26,
+            width: 2,
+          ),
         ),
         child: Center(
           child: Text(
             _isVisibleFavoriteList ? "ซ่อนเมนูทั้งหมด" : "แสดงเมนูโปรดอีกครั้ง",
-            style: const TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                color: Colors.black12, fontWeight: FontWeight.bold),
           ),
         ),
       ),
