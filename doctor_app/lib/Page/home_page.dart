@@ -49,38 +49,37 @@ class _HomPageState extends State<HomPage> {
             ),
             child: Column(
               children: [
-                Container(
-                  width: 160,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 10,
-                        spreadRadius: 5,
-                        offset: const Offset(0, 3),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.grey,
+                InkWell(
+                  onTap: () {
+                    print('นัดหมายล่วงหน้า');
+                  },
+                  child: Container(
+                    width: 160,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.1),
+                          blurRadius: 10,
+                          spreadRadius: 5,
+                          offset: const Offset(0, 3),
                         ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        'นัดหมายล่วงหน้า',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/img/80.png',
+                            height: 80, width: 80, fit: BoxFit.cover),
+                        const SizedBox(height: 10),
+                        const Text(
+                          'นัดหมายล่วงหน้า',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -216,11 +215,8 @@ class _HomPageState extends State<HomPage> {
                           padding: const EdgeInsets.all(10),
                           child: Column(
                             children: [
-                              Container(
-                                width: 60,
-                                height: 60,
-                                color: Colors.grey,
-                              ),
+                              Image.asset(data[index].image,
+                                  height: 60, width: 60, fit: BoxFit.cover),
                               const SizedBox(height: 5),
                               Text(
                                 data[index].favoriteName,
@@ -290,11 +286,8 @@ Widget MainMenu() {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 60,
-                height: 60,
-                color: Colors.black12,
-              ),
+              Image.asset(menuItems[index].image,
+                  height: 60, width: 60, fit: BoxFit.cover),
               const SizedBox(
                 height: 5,
               ),
