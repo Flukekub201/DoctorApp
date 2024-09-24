@@ -20,7 +20,11 @@ class _HomPageState extends State<HomPage> {
     return Column(
       children: [
         _TopBody(),
-        if (_isVisibleFavoriteList) _FavoriteList(),
+        AnimatedSlide(
+          offset: _isVisibleFavoriteList ? Offset(0, 0) : Offset(0, -0.1),
+          duration: Duration(milliseconds: 300),
+          child: _isVisibleFavoriteList ? _FavoriteList() : SizedBox.shrink(),
+        ),
         const SizedBox(
           height: 10,
         ),
@@ -108,7 +112,7 @@ class _HomPageState extends State<HomPage> {
                         style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green),
+                            color: Color.fromARGB(255, 3, 165, 24)),
                       )
                     ],
                   ),
@@ -191,6 +195,7 @@ class _HomPageState extends State<HomPage> {
           Container(
             height: 100,
             child: ListView.builder(
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: data.length + 1,
               itemBuilder: (context, index) {
@@ -275,7 +280,7 @@ class _HomPageState extends State<HomPage> {
           child: Text(
             _isVisibleFavoriteList ? "ซ่อนเมนูทั้งหมด" : "แสดงเมนูโปรดอีกครั้ง",
             style: const TextStyle(
-                color: Colors.black12, fontWeight: FontWeight.bold),
+                color: Colors.black38, fontWeight: FontWeight.bold),
           ),
         ),
       ),

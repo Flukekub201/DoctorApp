@@ -23,12 +23,33 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  void _sumitForm() {
+  void _submitForm() {
     if (formKey.currentState!.validate()) {
+      print('เข้าสู่ระบบสำเร็จ');
       Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MainPage(),
+          context, MaterialPageRoute(builder: (context) => MainPage()));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'เข้าสู่ระบบสำเร็จ',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 2),
+        ),
+      );
+    } else {
+      print("ข้อมูลไม่ถูกต้อง");
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'เข้าสูระบบไม่สำเร็จ',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            textAlign: TextAlign.center,
+          ),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 2),
         ),
       );
     }
@@ -151,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 const SizedBox(height: 20),
                                 InkWell(
-                                  onTap: _sumitForm,
+                                  onTap: _submitForm,
                                   child: Container(
                                     width: BouncingScrollSimulation
                                         .maxSpringTransferVelocity,

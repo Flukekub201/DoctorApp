@@ -69,7 +69,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Text(
                       'A132',
                       style: TextStyle(
-                          color: Colors.green,
+                          color: Color.fromARGB(255, 3, 165, 24),
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
                     ),
@@ -124,14 +124,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                                   Text(
                                     '3',
                                     style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.green),
                                   ),
                                   Text(
                                     '30',
                                     style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.green),
                                   ),
@@ -149,7 +149,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.green,
+      backgroundColor: Color.fromARGB(255, 3, 165, 24),
       automaticallyImplyLeading: false,
     );
   }

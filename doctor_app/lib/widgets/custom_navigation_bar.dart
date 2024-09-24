@@ -19,20 +19,79 @@ class CustomNavigationBer extends StatelessWidget {
           color: Colors.black.withOpacity(0.1),
           spreadRadius: 1,
           blurRadius: 10,
-          offset: Offset(0.0, -3.0),
+          offset: const Offset(0.0, -3.0),
         )
       ]),
       child: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.message), label: 'ประชาสัมพันธ์'),
+            icon: _buildAnimatedIcon(
+              icon: Icons.home,
+              index: 0,
+              selectedIndex: selectedIndex,
+            ),
+            label: 'หน้าหลัก',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.notifications_active), label: 'แจ้งเตือน'),
+            icon: _buildAnimatedIcon(
+              icon: Icons.message,
+              index: 1,
+              selectedIndex: selectedIndex,
+            ),
+            label: 'ประชาสัมพันธ์',
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person), label: 'ข้อมูลของฉัน'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'ตังค่า'),
+            icon: Stack(
+              children: [
+                _buildAnimatedIcon(
+                  icon: Icons.notifications_active,
+                  index: 2,
+                  selectedIndex: selectedIndex,
+                ),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(1),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 12,
+                      minHeight: 12,
+                    ),
+                    child: const Text(
+                      '1',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            label: 'แจ้งเตือน',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildAnimatedIcon(
+              icon: Icons.person,
+              index: 3,
+              selectedIndex: selectedIndex,
+            ),
+            label: 'ข้อมูลของฉัน',
+          ),
+          BottomNavigationBarItem(
+            icon: _buildAnimatedIcon(
+              icon: Icons.settings,
+              index: 4,
+              selectedIndex: selectedIndex,
+            ),
+            label: 'ตั้งค่า',
+          ),
         ],
         currentIndex: selectedIndex,
         selectedItemColor: Colors.green,
@@ -41,4 +100,21 @@ class CustomNavigationBer extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildAnimatedIcon({
+  required IconData icon,
+  required int index,
+  required int selectedIndex,
+}) {
+  bool isSelected = selectedIndex == index;
+  return AnimatedContainer(
+    duration: const Duration(milliseconds: 300),
+    padding:
+        EdgeInsets.only(bottom: isSelected ? 0 : 4), // ยกไอคอนขึ้นเมื่อถูกเลือก
+    child: Icon(
+      icon,
+      size: isSelected ? 30 : 24, // ขยายไอคอนเมื่อถูกเลือก
+    ),
+  );
 }

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class FavoriteMenuItem {
   String favoriteName;
   String image;
@@ -35,8 +37,8 @@ class Appointment {
   String period;
   String doctor;
   String examType;
-  String note;
   String date;
+  bool status;
 
   Appointment({
     required this.title,
@@ -45,28 +47,30 @@ class Appointment {
     required this.period,
     required this.doctor,
     required this.examType,
-    required this.note,
     required this.date,
+    required this.status,
   });
 }
 
 List<Appointment> appointments = [
   Appointment(
-      title: 'คุณมีนัดหมายการพบแพทย์ในวันพรุ่งนี้',
-      room: 'ห้องตรวจอายุรกรรม',
-      time: '09.00 น. -12.00 น.',
-      period: 'ตอนนี้',
-      doctor: 'นพ. สมชาย ใจดี',
-      examType: 'ตรวจโรคทั่วไป',
-      note: 'ไม่มี',
-      date: '04/05/2024'),
+    title: 'คุณมีนัดหมายการพบแพทย์ในวันพรุ่งนี้',
+    room: 'ห้องตรวจอายุรกรรม',
+    time: '09.00 น. -12.00 น.',
+    period: 'ตอนนี้',
+    doctor: 'นพ. สมชาย ใจดี',
+    examType: 'ตรวจโรคทั่วไป',
+    date: '04/05/2024',
+    status: false,
+  ),
   Appointment(
-      title: 'คุณมีนัดหมายการพบแพทย์ในอีก 7 วัน',
-      room: 'ห้องตรวจอายุรกรรม',
-      time: '09.00 น. -12.00 น.',
-      period: '1 สัปดาห์ที่แล้ว',
-      doctor: 'นพ. สุดยอด เฮงดี',
-      examType: 'ตรวจสุขภาพประจำปี',
-      note: 'กรุณานำเอกสารประวัติการรักษามาด้วย',
-      date: '28/04/2024'),
+    title: 'คุณมีนัดหมายการพบแพทย์ในอีก 7 วัน',
+    room: 'ห้องตรวจอายุรกรรม',
+    time: '09.00 น. -12.00 น.',
+    period: '1 สัปดาห์ที่แล้ว',
+    doctor: 'นพ. สุดยอด เฮงดี',
+    examType: 'ตรวจสุขภาพประจำปี',
+    date: '28/04/2024',
+    status: true,
+  ),
 ];
