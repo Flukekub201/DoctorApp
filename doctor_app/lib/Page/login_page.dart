@@ -25,9 +25,8 @@ class _LoginPageState extends State<LoginPage> {
 
   void _submitForm() {
     if (formKey.currentState!.validate()) {
-      print('เข้าสู่ระบบสำเร็จ');
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MainPage()));
+          context, MaterialPageRoute(builder: (context) => const MainPage()));
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -40,7 +39,6 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     } else {
-      print("ข้อมูลไม่ถูกต้อง");
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
@@ -117,8 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Container(
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 20),
+                                const Text('เลขบัตรประจำตัวประชาชน'),
+                                const SizedBox(height: 5),
                                 TextFormField(
                                   controller: idcardcontroller,
                                   keyboardType: TextInputType.number,
@@ -127,10 +128,9 @@ class _LoginPageState extends State<LoginPage> {
                                     LengthLimitingTextInputFormatter(13)
                                   ],
                                   decoration: const InputDecoration(
-                                    labelText: 'เลขบัตรประจำตัวประชาชน',
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
-                                        Radius.circular(20),
+                                        Radius.circular(10),
                                       ),
                                     ),
                                   ),
@@ -143,22 +143,23 @@ class _LoginPageState extends State<LoginPage> {
                                     return null;
                                   },
                                 ),
-                                const SizedBox(height: 30),
+                                const SizedBox(height: 10),
+                                const Text('รหัสผ่าน'),
+                                const SizedBox(height: 5),
                                 TextFormField(
                                   controller: passwordController,
                                   obscureText: showpas,
                                   decoration: InputDecoration(
-                                    labelText: 'รหัสผ่าน',
                                     border: const OutlineInputBorder(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(20)),
+                                          BorderRadius.all(Radius.circular(10)),
                                     ),
                                     suffixIcon: IconButton(
                                       icon: Icon(
                                         showpas
                                             ? Icons.visibility
                                             : Icons.visibility_off,
-                                        color: Colors.grey,
+                                        color: Colors.green,
                                       ),
                                       onPressed: toggleVisibility,
                                     ),
@@ -170,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                                     return null;
                                   },
                                 ),
-                                const SizedBox(height: 20),
+                                const SizedBox(height: 10),
                                 InkWell(
                                   onTap: _submitForm,
                                   child: Container(
